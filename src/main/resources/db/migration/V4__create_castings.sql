@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS castings;
+
+CREATE TABLE castings (
+  id SERIAL PRIMARY KEY,
+  film_id INTEGER NOT NULL REFERENCES films(id),
+  actor_id INTEGER NOT NULL REFERENCES actors(id)
+);

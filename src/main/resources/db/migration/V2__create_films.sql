@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS films;
+
+CREATE TABLE films (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  studio_id INTEGER NOT NULL REFERENCES studios(id)
+);
