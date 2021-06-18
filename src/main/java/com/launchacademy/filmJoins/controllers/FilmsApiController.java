@@ -40,14 +40,13 @@ public class FilmsApiController {
 
   @PostMapping
   public ResponseEntity create(@Valid @RequestBody FilmForm filmForm, BindingResult bindingResult) {
-    System.out.println("IN POST MAPPING");
     if(bindingResult.hasErrors()) {
       Map<String, List> errorMap = new HashMap<>();
       errorMap.put("errors", bindingResult.getAllErrors());
       return new ResponseEntity<Map<String, List>>(errorMap, HttpStatus.UNPROCESSABLE_ENTITY);
     }
     else {
-      return new ResponseEntity<Film>(filmForm.createFilm(), HttpStatus.CREATED);
+      return new ResponseEntity<Film>(service.createFilm(filmForm), HttpStatus.CREATED);
     }
   }
 

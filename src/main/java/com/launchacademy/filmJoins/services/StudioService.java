@@ -33,9 +33,6 @@ public class StudioService {
   }
 
   public Optional<Studio> findById(Integer id) {
-    System.out.println("in findById");
-    System.out.println(id);
-    System.out.println(repo.findById(id));
     return repo.findById(id);
   }
 }

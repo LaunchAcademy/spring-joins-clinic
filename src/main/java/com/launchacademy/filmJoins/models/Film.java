@@ -50,8 +50,5 @@ public class Film {
   )
   @JsonIgnoreProperties("films")
   private Set<Actor> actors;
-
-  @Column(name="studio_id", insertable = false, updatable = false)
-  private Integer studioId;
 }
 
