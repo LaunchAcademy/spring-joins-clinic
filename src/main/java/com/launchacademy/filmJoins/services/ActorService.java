@@ -4,6 +4,7 @@ import com.launchacademy.filmJoins.models.Actor;
 import com.launchacademy.filmJoins.models.Studio;
 import com.launchacademy.filmJoins.repositories.ActorRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +31,9 @@ public class ActorService {
 
   public void save(Actor actor) {
     repo.save(actor);
+  }
+
+  public Optional<Actor> findById(Integer id) {
+    return repo.findById(id);
   }
 }
