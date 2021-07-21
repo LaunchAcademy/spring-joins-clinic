@@ -1,6 +1,7 @@
 package com.launchacademy.filmJoins.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,5 +33,15 @@ public class Actor {
 
   @ManyToMany(mappedBy="actors", fetch = FetchType.EAGER)
   @JsonIgnoreProperties("actors")
-  private Set<Film> films;
+  private Set<Film> films = new HashSet<Film>();
+
+  public void addFilm(Film film) {
+    this.films.add(film);
+    film.getActors().add(this);
+  }
+
+  public void removeFilm(Film film) {
+    this.films.remove(film);
+    film.getActors().remove(this);
+  }
 }
